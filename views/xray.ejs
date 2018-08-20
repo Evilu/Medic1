@@ -1,36 +1,33 @@
 <%- include header %>
 <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-    <table class="table table-bordered" >
-        <thead>
-        <tr>
-            <th>Scan Name</th>
-            <th>Choose Status</th>
-            <th>Current Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <%result.forEach(function (scan, index) { %>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Scan Name</th>
+                <th>Choose Status</th>
+                <th>Current Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% result.forEach(function (scan, index) { %>
 
-        <tr>
-            <td>  <a href=<%= scan.url %>><%= scan.photo_name %></a> </td>
-            <td>
-                <button type="Approve" class="btn btn-success" onclick="alert('Approve!')">Approve</button>
-                &nbsp;
-                <button type="Pending" class="btn btn-warning" onclick="alert('Pending!')">Pending</button>
-                &nbsp;
-                <button type="Reject" class="btn btn-danger" onclick="alert('Reject')">Reject</button>
-            </td>
-
-
-            <td><%= scan.Status %></td>
+            <tr>
+                <td><a href=<%= scan.url %>><%= scan.photo_name %></a></td>
+                <td>
+                    <button type="Approve" class="btn btn-success" onclick="alert('Approve!')">Approve</button>
+                    &nbsp;
+                    <button type="Pending" class="btn btn-warning" onclick="alert('Pending!')">Pending</button>
+                    &nbsp;
+                    <button type="Reject" class="btn btn-danger" onclick="alert('Reject')">Reject</button>
+                </td>
 
 
+                <td><%= scan.Status %></td>
 
+                <% }) %>
+            </tbody>
+        </table>
 
-        <% }) %>
-        </tbody>
-    </table>
-
-</div>
+    </div>
 <%- include footer %>

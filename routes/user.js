@@ -1,28 +1,24 @@
+exports.signup = function (req, res) {
+    message = '';
+    if (req.method == "POST") {
+        let post = req.body;
+        let name = post.user_name;
+        let pass = post.password;
+        let fname = post.first_name;
+        let lname = post.last_name;
+        let mob = post.mob_no;
+        let sql = "INSERT INTO `users`(`first_name`,`last_name`,`mob_no`,`user_name`, `password`) " +
+            "VALUES ('" + fname + "','" + lname + "','" + mob + "','" + name + "','" + pass + "')";
+        let query = db.query(sql, function (err, result) {
 
+            message = "Succesfully! Your account has been created.";
+            res.render('signup.ejs', {message: message});
+        });
 
-exports.signup = function(req, res){
-   message = '';
-   if(req.method == "post"){
-      let post  = req.body;
-       let name= post.user_name;
-       let pass= post.password;
-       let fname= post.first_name;
-       let lname= post.last_name;
-       let mob= post.mob_no;
-
-      const sql = "INSERT INTO `users`(`first_name`,`last_name`,`mob_no`,`user_name`, `password`) VALUES ('" + fname + "','" + lname + "','" + mob + "','" + name + "','" + pass + "')";
-
-      const query = db.query(sql, function(err, result) {
-
-         message = "Succesfully! Your account has been created.";
-         res.render('signup.ejs',{message: message});
-      });
-
-   } else {
-      res.render('signup');
-   }
+    } else {
+        res.render('signup');
+    }
 };
- 
 
 exports.login = function(req, res){
     let message = '';
@@ -33,7 +29,8 @@ exports.login = function(req, res){
        let name= post.user_name;
        let pass= post.password;
 
-       let sql="SELECT id, first_name, last_name, user_name FROM `users` WHERE `user_name`='"+name+"' and password = '"+pass+"'";
+       let sql="SELECT id, first_name, last_name, user_name FROM `users` " +
+           "WHERE `user_name`='"+name+"' and password = '"+pass+"'";
       db.query(sql, function(err, results){      
          if(results.length){
             req.session.userId = results[0].id;
@@ -71,13 +68,14 @@ exports.dashboard = function(req, res, next){
 
 };
 
-//------------------------------------logout functionality----------------------------------------------
+
 exports.logout=function(req,res){
    req.session.destroy(function(err) {
       res.redirect("/login");
    })
 };
-//--------------------------------render user details after login--------------------------------
+
+
 exports.profile = function(req, res){
 
     let userId = req.session.userId;
