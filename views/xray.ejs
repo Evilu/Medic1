@@ -5,15 +5,17 @@
         <thead>
         <tr>
             <th>Scan Name</th>
-            <th>Status</th>
+            <th>Choose Status</th>
+            <th>Current Status</th>
         </tr>
         </thead>
         <tbody>
         <%result.forEach(function (scan, index) { %>
+
         <tr>
             <td>  <a href=<%= scan.url %>><%= scan.photo_name %></a> </td>
             <td>
-                <button type="Approve" class="btn btn-success" onclick="alert('Approve')">Approve</button>
+                <button type="Approve" class="btn btn-success" onclick="alert('Approve!')">Approve</button>
                 &nbsp;
                 <button type="Pending" class="btn btn-warning" onclick="alert('Pending!')">Pending</button>
                 &nbsp;
@@ -24,7 +26,7 @@
             <td><%= scan.Status %></td>
 
 
-     
+
 
         <% }) %>
         </tbody>
