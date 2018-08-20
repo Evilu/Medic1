@@ -38,7 +38,7 @@ exports.login = function(req, res){
             res.redirect('/home/dashboard');
          }
          else{
-            message = 'Wrong Credentials.';
+            message = 'Username or password is/are invalid.';
             res.render('index.ejs',{message: message});
          }
                  
