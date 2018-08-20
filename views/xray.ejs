@@ -1,0 +1,22 @@
+<%- include header %>
+<div class="row">
+
+    <table id="table" >
+        <thead>
+        <tr>
+            <th>Scan Name</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% print.forEach(function (scan) { %>
+        <tr>
+            <td><%= scan.photo_name %></td>
+            <td><%= scan.Status %></td>
+        </tr>
+
+        <% }) %>
+        </tbody>
+    </table>
+</div>
+<%- include footer %>
