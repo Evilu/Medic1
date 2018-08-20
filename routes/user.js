@@ -1,8 +1,8 @@
 
-//---------------------------------------------signup page call------------------------------------------------------
+
 exports.signup = function(req, res){
    message = '';
-   if(req.method == "POST"){
+   if(req.method == "post"){
       let post  = req.body;
        let name= post.user_name;
        let pass= post.password;
@@ -23,7 +23,7 @@ exports.signup = function(req, res){
    }
 };
  
-//-----------------------------------------------login page call------------------------------------------------------
+
 exports.login = function(req, res){
     let message = '';
     let sess = req.session;
@@ -38,7 +38,6 @@ exports.login = function(req, res){
          if(results.length){
             req.session.userId = results[0].id;
             req.session.user = results[0];
-            console.log(results[0].id);
             res.redirect('/home/dashboard');
          }
          else{
@@ -52,14 +51,13 @@ exports.login = function(req, res){
    }
            
 };
-//-----------------------------------------------dashboard page functionality----------------------------------------------
+
            
 exports.dashboard = function(req, res, next){
 
 
     let user =  req.session.user,
    userId = req.session.userId;
-   console.log('ddd='+userId);
    if(userId == null){
       res.redirect("/login");
       return;
@@ -93,42 +91,29 @@ exports.profile = function(req, res){
       res.render('profile.ejs',{data:result})
    });
 };
-//---------------------------------edit users details after login----------------------------------
-// exports.editprofile=function(req,res){
-//     let userId = req.session.userId;
-//    if(userId == null){
-//       res.redirect("/login");
-//       return;
-//    }
-//
-//     let sql="SELECT * FROM `users` WHERE `id`='"+userId+"'";
-//    db.query(sql, function(err, results){
-//       res.render('edit_profile.ejs',{data:results});
-//    });
-// };
+
 
 exports.xray = function(req, res){
-    message = '';
-    if(req.method == "POST") {
-        let post = req.body;
-        let name = post.photo_name;
-        let mob = post.mob_no;
-        let status = post.Status;
+
+    if (req.method == "PUT") {
+        let put = req.body;
+        let status = put.Status;
+
+        const sql ="INSET INTO `scans`(`Status`) VALUES " +
+            "('" + status + "')";
+        const query = db.query (sql, function(err, result) {
 
 
-        const sql = "INSERT INTO `users`(`photo_name`,`mob_no`,`Status`) VALUES ('" + name + "','" + mob + "','" + status + "')";
-
-        db.query('SELECT * FROM scans', function (err, result) {
-
+        });
+    } else {
+      db.query('SELECT * FROM scans', function (err, result) {
             if (err) {
                 throw err;
             } else {
-                message = "Succes! Your status has been changed.";
-                obj = {print: result};
-                msg = {message: message}
-                res.render('xray.ejs', obj, msg);
+
+                res.render('xray.ejs', {result});
             }
         });
-    }
 
+    }
 };

@@ -21,12 +21,14 @@ connection.connect();
 global.db = connection;
  
 // all environments
+
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(__dirname+'/public/'));
 app.use(session({
               secret: 'keyboard cat',
               resave: false,
@@ -45,6 +47,7 @@ app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
 app.get('/home/logout', user.logout);//call for logout
 app.get('/home/profile',user.profile);//to render users profile
 app.get('/home/xray',user.xray);//to render xray page
+app.post('/home/xray',user.xray);//to post status xray page
 //Middleware
 
 app.listen(8080, () => {
