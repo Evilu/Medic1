@@ -9,14 +9,25 @@
         </tr>
         </thead>
         <tbody>
-        <% print.forEach(function (scan) { %>
+        <% print.forEach(function (scan,index) { %>
         <tr>
-            <td><%= scan.photo_name %></td>
+            <td>  <a href=<%= scan.url %>><%= scan.photo_name %></a></td>
             <td><%= scan.Status %></td>
+            <td>    <form action="/profile" method="POST" onSubmit= "return checkblank(this);">
+                    <select name="change status" multiple>
+                        <option value="pending">Pending</option>
+                        <option value="OK">OK</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <input type="submit">
+                </form></td>
+
+
         </tr>
 
         <% }) %>
         </tbody>
     </table>
+
 </div>
 <%- include footer %>
