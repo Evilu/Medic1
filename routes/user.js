@@ -62,9 +62,12 @@ exports.dashboard = function(req, res, next){
 
     let sql="SELECT * FROM `users` WHERE `id`='"+userId+"'";
 
-   db.query(sql, function(err, results){
-      res.render('dashboard.ejs', {user:user});
-   });
+   db.query(sql, function(err, results,){
+       if (err) {
+           throw err;
+       } else {
+           res.render('dashboard.ejs', {data: results});
+       }});
 
 };
 
@@ -85,7 +88,7 @@ exports.profile = function(req, res){
    }
 
     let sql="SELECT * FROM `users` WHERE `id`='"+userId+"'";
-   db.query(sql, function(err, result){  
+   db.query(sql, function(err, result){
       res.render('profile.ejs',{data:result})
    });
 };
