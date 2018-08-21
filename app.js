@@ -23,7 +23,7 @@ global.db = connection;
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(__dirname + '/public/'));
@@ -45,7 +45,7 @@ app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
 app.get('/home/logout', user.logout);//call for logout
 app.get('/home/profile', user.profile);//to render users profile
 app.get('/home/xray', user.xray);//to render xray page
-app.post('/home/xray', user.xray);//to post status xray page
+app.post('/home/xray', user.xray);//to update status xray page
 
 
 app.listen(8080, () => {

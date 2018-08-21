@@ -18,11 +18,13 @@
             <tr>
                 <td><a href=<%= scan.url %>><%= scan.photo_name %></a></td>
                 <td>
-                    <a type="button" class="btn btn-success" href="?id=<%= scan.id %>&status=OK">Status Ok</a>
+
+                    <a type="button" class="btn btn-success" href="?id=<%= scan.id %>&status=Approved">Approved</a>
                     &nbsp;
-                    <a type="button"  class="btn btn-danger" href="?id=<%= scan.id %>&status=Rejected">Status Rejected</a>
+                    <a type="button" class="btn btn-warning" href="?id=<%= scan.id %>&status=Pending">Pending</a>
                     &nbsp;
-                    <a  type="button" class="btn btn-warning" href="?id=<%= scan.id %>&status=Pending">Status Pending</a>
+                    <a type="button"  class="btn btn-danger" href="?id=<%= scan.id %>&status=Rejected">Rejected</a>
+
                 </td>
 
 

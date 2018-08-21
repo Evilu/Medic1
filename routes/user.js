@@ -94,27 +94,18 @@ exports.profile = function(req, res){
 };
 
 
+
 exports.xray = function(req, res){
+    if(req.query.id && req.query.status) {
+        db.query("UPDATE `scans` SET `status` = '"+req.query.status+"' WHERE `id` = '"+req.query.id+"' ;")
 
-    if (req.method == "PUT") {
-        let put = req.body;
-        let status = put.Status;
-
-        const sql ="INSET INTO `scans`(`Status`) VALUES " +
-            "('" + status + "')";
-        const query = db.query (sql, function(err, result) {
-
-
-        });
-    } else {
-      db.query('SELECT * FROM scans', function (err, result) {
-            if (err) {
-                throw err;
-            } else {
-
-                res.render('xray.ejs', {result});
-            }
-        });
 
     }
+    db.query('SELECT * FROM scans', function (err, result) {
+        if (err) {
+            throw err;
+        } else {
+            res.render('xray.ejs', {result});
+        }
+    });
 };
