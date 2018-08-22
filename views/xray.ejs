@@ -4,36 +4,36 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
         <form class="form-horizontal" role="form" method="post" action="/home/xray">
 
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Scan Name</th>
-                <th>Choose Status</th>
-                <th>Current Status</th>
-            </tr>
-            </thead>
-            <tbody>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Scan Name</th>
+                    <th>Choose Status</th>
+                    <th>Current Status</th>
+                </tr>
+                </thead>
+                <tbody>
 
 
-            <tr>
-                <td><a href=<%= scan.url %>><%= scan.photo_name %></a></td>
-                <td>
-                    <a type="button" class="btn btn-success" href="?id=<%= scan.id %>&status=Approved">Approved</a>
-                    &nbsp;
-                    <a  type="button" class="btn btn-warning" href="?id=<%= scan.id %>&status=Pending">Pending</a>
+                <tr>
+                    <td><a href=<%= scan.url %>><%= scan.photo_name %></a></td>
+                    <td>
+                        <a type="button" class="btn btn-success" href="?id=<%= scan.id %>&status=Approved">Approved</a>
+                        &nbsp;
+                        <a type="button" class="btn btn-warning" href="?id=<%= scan.id %>&status=Pending">Pending</a>
 
-                    <a type="button"  class="btn btn-danger" href="?id=<%= scan.id %>&status=Rejected">Rejected</a>
-                    &nbsp;
+                        <a type="button" class="btn btn-danger" href="?id=<%= scan.id %>&status=Rejected">Rejected</a>
+                        &nbsp;
 
-                </td>
+                    </td>
 
 
-                <td><%= scan.status %></td>
+                    <td><%= scan.status %></td>
 
-                <% }) %>
-            </tbody>
-        </table>
-            </form>
+                    <% }) %>
+                </tbody>
+            </table>
+        </form>
 
     </div>
 <%- include footer %>

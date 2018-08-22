@@ -19,7 +19,6 @@ connection.connect();
 global.db = connection;
 
 
-
 app.set('port', process.env.PORT || 8080);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -35,7 +34,6 @@ app.use(session({
 }));
 
 
-
 app.get('/', routes.index);//call for main index page
 app.get('/signup', user.signup);//call for signup page
 app.post('/signup', user.signup);//call for signup post 
@@ -44,8 +42,8 @@ app.post('/login', user.login);//call for login post
 app.get('/home/dashboard', user.dashboard);//call for dashboard page after login
 app.get('/home/logout', user.logout);//call for logout
 app.get('/home/profile', user.profile);//to render users profile
-app.get('/home/xray', user.xray);//to render xray page
-app.post('/home/xray', user.xray);//to post status xray page
+app.get('/home/xray', user.xray);//to render Xray page
+app.post('/home/xray', user.xray);//to post status Xray page
 
 
 app.listen(8080, () => {
