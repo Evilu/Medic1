@@ -26,7 +26,7 @@ CREATE TABLE `scans` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `photo_name` text NOT NULL,
   `mob_no` int(11) NOT NULL,
-  `Status` varchar(15) NOT NULL,
+  `status` varchar(255) NOT NULL,
   `url` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
@@ -38,7 +38,7 @@ CREATE TABLE `scans` (
 
 LOCK TABLES `scans` WRITE;
 /*!40000 ALTER TABLE `scans` DISABLE KEYS */;
-INSERT INTO `scans` VALUES (4,'scan1',9847763,'ok','http://localhost:8080/public/scan1.jpg'),(5,'ugi1',9847765,'Pending','http://localhost:8080/public/ugi1.jpg'),(6,'james',9847761,'ok','http://localhost:8080/public/james.jpg'),(7,'rexy',9847734,'Rejected','http://localhost:8080/public/rexy.jpg'),(8,'alien',9847769,'Rejected','http://localhost:8080/public/alien.jpg');
+INSERT INTO `scans` VALUES (4,'scan1',9847763,'Approved','http://localhost:8080/public/scan1.jpg'),(5,'ugi1',9847765,'Pending','http://localhost:8080/public/ugi1.jpg'),(6,'james',9847761,'Rejected','http://localhost:8080/public/james.jpg'),(7,'rexy',9847734,'Rejected','http://localhost:8080/public/rexy.jpg'),(8,'alien',9847769,'Rejected','http://localhost:8080/public/alien.jpg');
 /*!40000 ALTER TABLE `scans` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-20 23:09:39
+-- Dump completed on 2018-08-27 17:22:23

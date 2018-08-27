@@ -30,7 +30,7 @@ CREATE TABLE `users` (
   `user_name` varchar(20) NOT NULL,
   `password` varchar(15) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (4,'moshe','fisher',9847763,'moshe1','123456'),(5,'margaret','fisher',8736653,'marg1','123456');
+INSERT INTO `users` VALUES (4,'moshe','fisher',9847763,'moshe1','123456'),(5,'margaret','fisher',8736653,'marg1','123456'),(20,'sivan','shimbovich',548449439,'sivan1','6511665'),(21,'inbar','arrusy',76455574,'inbar1','123456');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-08-20 23:09:38
+-- Dump completed on 2018-08-27 17:22:23
