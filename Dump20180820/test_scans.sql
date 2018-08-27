@@ -1,5 +1,5 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
---changes made 27/08/18
+--
 -- Host: localhost    Database: test
 -- ------------------------------------------------------
 -- Server version	8.0.12
